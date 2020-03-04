@@ -1,0 +1,44 @@
+{% extends "admin/base.html" %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block content %}
+	<div class="jumbotron">
+		<div class="container">
+			<h1>重置</h1>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<form method="POST" id="reset-ctf-form">
+					<div class="alert alert-danger" role="alert">
+						<p>
+							重置您的CTF将删除所有用户和团队数据。 重置之前请仔细考虑，因为不会进行自动备份并且所有非挑战性数据都将丢失。
+						</p>
+
+						<span>
+							<strong>
+								通过 <a href="{{ url_for('admin.config', _anchor='backup') }}">创建CTFd备份</a>创建所需所有数据的备份。
+							</strong>
+						</span>
+					</div>
+
+					<input id="nonce" type="hidden" name="nonce" value="{{ nonce }}">
+
+					<button class="btn btn-warning btn-lg btn-block">
+						重置 CTF
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+{% block entrypoint %}
+	<script defer src="{{ url_for('views.themes', theme='admin', path='js/pages/reset.js') }}"></script>
+{% endblock %}
