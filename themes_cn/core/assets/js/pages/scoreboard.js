@@ -65,11 +65,7 @@ const createGraph = () => {
     if (teams.length === 0) {
       // Replace spinner
       graph.html(
-<<<<<<< HEAD
         '<div class="text-center"><h3 class="spinner-error">暂无数据</h3></div>'
-=======
-        '<div class="text-center"><h3 class="spinner-error">No solves yet</h3></div>'
->>>>>>> d04e6529a7944f0f21662e28323e10119f93f3f3
       );
       return;
     }
