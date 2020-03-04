@@ -16,7 +16,7 @@ tar -zxvf CTFd-2.3.1.tar.gz
 - 获得主题文件,解压
 
 ```bash
-wget -O themes_cn.tar.gz https://github.com/eonun/CTFd_themes_cn/releases/download/v2.3.1_cnv1/themes_cn.tar.gz
+wget -O themes_cn.tar.gz https://eonun.coding.net/api/user/eonun/project/CTFd_themes_cn/git/releases/attachments/download/30767
 tar -zxvf themes_cn.tar.gz
 ```
 
