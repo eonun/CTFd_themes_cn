@@ -8,13 +8,13 @@ import { createGraph, updateGraph } from "core/graphs";
 const graph_configs = {
   "#solves-graph": {
     layout: annotations => ({
-      title: "Solve Counts",
+      title: "答题统计",
       annotations: annotations,
       xaxis: {
-        title: "Challenge Name"
+        title: "挑战名称"
       },
       yaxis: {
-        title: "Amount of Solves"
+        title: "答题数量"
       }
     }),
     fn: () => "CTFd_solves_" + new Date().toISOString().slice(0, 19),
@@ -65,7 +65,7 @@ const graph_configs = {
 
   "#keys-pie-graph": {
     layout: () => ({
-      title: "Submission Percentages"
+      title: "提交百分比"
     }),
     fn: () => "CTFd_submissions_" + new Date().toISOString().slice(0, 19),
     data: () => CTFd.api.get_submission_property_counts({ column: "type" }),
@@ -92,7 +92,7 @@ const graph_configs = {
 
   "#categories-pie-graph": {
     layout: () => ({
-      title: "Category Breakdown"
+      title: "类别明细"
     }),
     data: () => CTFd.api.get_challenge_property_counts({ column: "category" }),
     fn: () => "CTFd_categories_" + new Date().toISOString().slice(0, 19),
@@ -128,12 +128,12 @@ const graph_configs = {
 
   "#solve-percentages-graph": {
     layout: annotations => ({
-      title: "Solve Percentages per Challenge",
+      title: "挑战解答百分比",
       xaxis: {
-        title: "Challenge Name"
+        title: "挑战名称"
       },
       yaxis: {
-        title: "Percentage of {0} (%)".format(
+        title: " {0} 百分比 (%)".format(
           CTFd.config.userMode.charAt(0).toUpperCase() +
             CTFd.config.userMode.slice(1)
         ),
