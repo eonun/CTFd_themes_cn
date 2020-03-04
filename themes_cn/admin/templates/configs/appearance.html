@@ -1,0 +1,128 @@
+<div role="tabpanel" class="tab-pane config-section active" id="appearance">
+	<form id="logo-upload" class="form-upload" method="POST" enctype="multipart/form-data">
+		<div class="form-group">
+			<label for="ctf_logo">
+				Logo
+				<small class="form-text text-muted">
+					设置赛事Logo
+				</small>
+			</label>
+
+			{% if ctf_logo %}
+				<div class="d-block py-3">
+					<img id="ctf_logo_preview" class="img-responsive ctf_logo"
+						 src="{{ url_for('views.files', path=ctf_logo) }}"
+						 height="25">
+					<button type="button" id="remove-logo" class="btn-sm btn-danger">
+						删除 Logo
+					</button>
+				</div>
+			{% endif %}
+
+			<div class="row">
+				<div class="col-md-9">
+					<input class="form-control-file" id="ctf_logo_file" name='file' type='file'
+						   placeholder="CTF Logo">
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<div class="d-inline-block float-right">
+							<button type="submit" class="btn-sm btn-primary float-right">上传</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<hr>
+
+	<form method="POST" autocomplete="off" class="w-100">
+		<div class="form-group">
+			<label for="ctf_name">
+				赛事名称
+				<small class="form-text text-muted">设置赛事名称</small>
+			</label>
+			<input class="form-control" id='ctf_name' name='ctf_name' type='text' placeholder="CTF Name"
+				   {% if ctf_name is defined and ctf_name != None %}value="{{ ctf_name }}"{% endif %}>
+		</div>
+
+		<div class="form-group">
+			<label>
+				CTF 赛事说明<br>
+				<small class="form-text text-muted">
+					描述这个CTF赛事
+				</small>
+			</label>
+			<textarea class="form-control" type="text" id="ctf_description" name="ctf_description" rows="5">{{ ctf_description }}</textarea>
+		</div>
+
+		<div class="form-group">
+			<label for="user_mode">
+				用户模式
+				<small class="form-text text-muted">团队模式还是个人赛模式
+				</small>
+			</label>
+			<div data-toggle="tooltip" data-placement="bottom" title="In order to change User Mode you must reset your CTF">
+				<select class="form-control custom-select" id="user_mode" name="user_mode" disabled="true" style="z-index: -1;">
+					<option value="teams" {% if user_mode == 'teams' %}selected{% endif %}>
+						团队
+					</option>
+					<option value="users" {% if user_mode == 'users' %}selected{% endif %}>
+						个人
+					</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="ctf_theme">
+				主题
+				<small class="form-text text-muted">
+					根换主题的外观
+				</small>
+			</label>
+			<select class="form-control custom-select" id="ctf_theme" name="ctf_theme">
+				<option>{{ ctf_theme }}</option>
+				{% for theme in themes %}
+					<option>{{ theme }}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label>
+				主题颜色
+				<small class="form-text text-muted">
+					设置主题的颜色，需要主题支持
+				</small>
+			</label>
+			<div class="d-inline-block">
+				<input type="color" id="config-color-picker">
+				<button type="button" class="btn-sm btn-primary" id="config-color-update">设置样式</button>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>
+				主题标题
+				<small class="form-text text-muted">
+					主题标题插入 <code>&lt;/head&gt;</code> 在所有对公页面上的标记前，需要主题支持
+				</small>
+			</label>
+			<textarea class="form-control" id="theme-header" name="theme_header" rows="7">{{ theme_header or "" }}</textarea>
+		</div>
+
+		<div class="form-group">
+			<label>
+				主题页脚
+				<small class="form-text text-muted">
+					主题页脚插入 <code>&lt;/body&gt;</code> 在所有对公页面的标记前，需要主题支持
+				</small>
+			</label>
+			<textarea class="form-control" id="theme-footer" name="theme_footer" rows="7">{{ theme_footer or "" }}</textarea>
+		</div>
+
+		<button type="submit" class="btn btn-md btn-primary float-right">更新设置</button>
+	</form>
+</div>
