@@ -35,4 +35,43 @@ docker run -p 8000:8000 -itd CTFd
 ```
 
 
+# 预览
+
+
+![00](./image/00.png)
+
+
+![01](./image/01.png)
+
+
+![02](./image/02.png)
+
+
+![03](./image/03.png)
+
+
+![04](./image/04.png)
+
+
+- 未汉化点
+
+![05](./image/05.png)
+
+
+![06](./image/06.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
