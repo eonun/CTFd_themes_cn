@@ -1,0 +1,91 @@
+<form method="POST">
+	<div class="form-group">
+		<label for="name">名称<br>
+			<small class="form-text text-muted">
+				挑战的名称
+			</small>
+		</label>
+		<input type="text" class="form-control chal-name" name="name" value="{{ challenge.name }}">
+	</div>
+	<div class="form-group">
+		<label for="category">类别<br>
+			<small class="form-text text-muted">
+				挑战的类别
+			</small>
+		</label>
+		<input type="text" class="form-control chal-category" name="category" value="{{ challenge.category }}">
+	</div>
+
+	<div class="form-group">
+		<label for="message-text" class="control-label">信息<br>
+			<small class="form-text text-muted">
+				用它简要描述这个挑战，支持HTML和Markdown
+			</small>
+		</label>
+		<textarea id="desc-editor" class="form-control chal-desc-editor" name="description" rows="10">{{ challenge.description }}</textarea>
+	</div>
+
+	<div class="form-group">
+		<label for="value">当前分值<br>
+			<small class="form-text text-muted">
+				这个挑战现在的分值
+			</small>
+		</label>
+		<input type="number" class="form-control chal-value" name="value" value="{{ challenge.value }}" disabled>
+	</div>
+
+	<div class="form-group">
+		<label for="value">初始分值<br>
+			<small class="form-text text-muted">
+				这个挑战的初始分值
+			</small>
+		</label>
+		<input type="number" class="form-control chal-initial" name="initial" value="{{ challenge.initial }}" required>
+	</div>
+
+	<div class="form-group">
+		<label for="value">衰减极限<br>
+			<small class="form-text text-muted">
+				挑战分值达到最小分值前的解题数量
+			</small>
+		</label>
+		<input type="number" class="form-control chal-decay" name="decay" value="{{ challenge.decay }}" required>
+	</div>
+
+	<div class="form-group">
+		<label for="value">最小分值<br>
+			<small class="form-text text-muted">
+				这是挑战的最低分值
+			</small>
+		</label>
+		<input type="number" class="form-control chal-minimum" name="minimum" value="{{ challenge.minimum }}" required>
+	</div>
+
+	<div class="form-group">
+		<label>
+			最大尝试次数<br>
+			<small class="form-text text-muted">用户的最大尝试次数，0为无限</small>
+		</label>
+
+		<input type="number" class="form-control chal-attempts" name="max_attempts"
+			   value="{{ challenge.max_attempts }}">
+	</div>
+
+	<div class="form-group">
+		<label>
+			状态<br>
+			<small class="form-text text-muted">更改挑战的状态（可见，隐藏）</small>
+		</label>
+
+		<select class="form-control custom-select" name="state">
+			<option value="visible" {% if challenge.state == "visible" %}selected{% endif %}>可见</option>
+			<option value="hidden" {% if challenge.state == "hidden" %}selected{% endif %}>隐藏</option>
+		</select>
+	</div>
+
+	<div>
+		<button class="btn btn-success btn-outlined float-right" type="submit">
+			更新
+		</button>
+	</div>
+</form>

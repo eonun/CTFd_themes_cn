@@ -6,7 +6,7 @@ import { cumulativeSum, colorHash } from "./utils";
 const graph_configs = {
   score_graph: {
     layout: {
-      title: "Score over Time",
+      title: "随时间推移得分",
       paper_bgcolor: "rgba(0,0,0,0)",
       plot_bgcolor: "rgba(0,0,0,0)",
       hovermode: "closest",
@@ -66,7 +66,7 @@ const graph_configs = {
 
   category_breakdown: {
     layout: {
-      title: "Category Breakdown",
+      title: "类别明细",
       paper_bgcolor: "rgba(0,0,0,0)",
       plot_bgcolor: "rgba(0,0,0,0)",
       legend: {
@@ -114,7 +114,7 @@ const graph_configs = {
 
   solve_percentages: {
     layout: {
-      title: "Solve Percentages",
+      title: "挑战百分比",
       paper_bgcolor: "rgba(0,0,0,0)",
       plot_bgcolor: "rgba(0,0,0,0)",
       legend: {
