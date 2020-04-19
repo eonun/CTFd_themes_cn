@@ -26,16 +26,16 @@ tar -zxvg plugins_cn.tar.gz
 
 ```bash
 mv CTFd-2.3.1/CTFd/themes CTFd-2.3.1/CTFd/themes.backup
-mv themes_cn CTFd-2.3.1/CTFd/themes
+mv CTFd_themes_cn/themes_cn CTFd-2.3.1/CTFd/themes
 mv CTFd-2.3.1/CTFd/plugins_cn CTFd-2.3.1/CTFd/plugins.backup
-mv plugins_cn CTFd-2.3.1/CTFd/plugins
+mv CTFd_themes_cn/plugins_cn CTFd-2.3.1/CTFd/plugins
 ```
 
 - 部署
 
 ```bash
-docker build -t CTFd .
-docker run -p 8000:8000 -itd CTFd
+docker build -t ctfd .
+docker run -p 8000:8000 -itd ctfd
 ```
 
 
