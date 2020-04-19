@@ -27,7 +27,7 @@ tar -zxvg plugins_cn.tar.gz
 ```bash
 mv CTFd-2.3.1/CTFd/themes CTFd-2.3.1/CTFd/themes.backup
 mv CTFd_themes_cn/themes_cn CTFd-2.3.1/CTFd/themes
-mv CTFd-2.3.1/CTFd/plugins_cn CTFd-2.3.1/CTFd/plugins.backup
+mv CTFd-2.3.1/CTFd/plugins CTFd-2.3.1/CTFd/plugins.backup
 mv CTFd_themes_cn/plugins_cn CTFd-2.3.1/CTFd/plugins
 ```
 
